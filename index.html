@@ -25,6 +25,12 @@
             padding: 10px;
             width: 80px;
             border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .btn-fixed {
+            position: fixed;
         }
 
         /* Media query para dispositivos móveis */
@@ -52,22 +58,20 @@
 <body>
   <div id="conteudo">
     <h2>Quer namorar comigo?</h2>
-    <div style="margin: auto;width: 170px;">
-        <button style="position: fixed;display: block;" class="btn btn-fixed" onclick="sim()">SIM</button>
-        <button class="btn" onclick="desvia(this)" onmouseover="desvia(this)" style="position: absolute;">NÃO</button>
+    <div style="margin: auto; width: 170px;">
+        <button style="position: fixed; display: block;" class="btn btn-fixed" onclick="sim()" aria-label="Sim">SIM</button>
+        <button class="btn" onclick="desvia(this)" onmouseover="desvia(this)" style="position: absolute;" aria-label="Não">NÃO</button>
     </div>
-    <img src="https://images.vexels.com/media/users/3/200040/isolated/preview/9960585fc70528e037e94ccee1e67363-ilustracao-de-gato-laranja.png" alt="Imagem Central">
-</div>
+    <img src="https://images.vexels.com/media/users/3/200040/isolated/preview/9960585fc70528e037e94ccee1e67363-ilustracao-de-gato-laranja.png" alt="Imagem Central" style="max-width: 100%; height: auto;">
+  </div>
 
-<script>
+  <script>
     function sim() {
         alert("Você aceitou namorar comigo! :)");
-        // redireciona para um URL após clicar no SIM
         location.href = "https://open.spotify.com/intl-pt/track/0JkBX1SATvzoNgKTEV6yL5?si=66a18ee4a8e6482a";
     }
 
     function desvia(btn) {
-        // btn declarado na função
         btn.style.position = 'absolute';
         btn.style.bottom = geraPosicao(10, 90);
         btn.style.left = geraPosicao(10, 90);
@@ -77,7 +81,6 @@
     function geraPosicao(min, max) {
         return (Math.random() * (max - min) + min) + "%";
     }
-</script>
+  </script>
 </body>
-
 </html>
